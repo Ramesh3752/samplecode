@@ -55,7 +55,7 @@ public class ProductController { // class named as Productcontroller
 	}
 
 
-	@Operation(summary = "Create a new product", description = "Adds a new product to inventory") // describes the
+	@Operation(summary= "collects all the products") // describes the
 																									// endpoint
 	@GetMapping // Map http get requests to this method
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -63,7 +63,7 @@ public class ProductController { // class named as Productcontroller
 		return new ResponseEntity<>(products, HttpStatus.OK); // returns the list of products with httpstatus.ok(200)
     }
 
-	@Operation(summary = "Create a new product", description = "Adds a new product to inventory") // describes the
+	@Operation(summary= "gets  product by id") // describes the
 																									// endpoint
 	@GetMapping("/{id}") // Allow requests like /api/products/1
 	public ResponseEntity<Product> getProductById(@PathVariable Long id) { // @pathvariable long id: will extracts id
@@ -75,7 +75,7 @@ public class ProductController { // class named as Productcontroller
 																				// return httpsstatus.notfound(404)
     }
 
-	@Operation(summary = "Create a new product", description = "Adds a new product to inventory") // describes the
+	@Operation(summary = "Updates product information by product id") // describes the
 																									// endpoint
 	@PutMapping("/{id}") // Maps HTTP PUT requests to update an existing product.
 
@@ -96,7 +96,7 @@ public class ProductController { // class named as Productcontroller
         }
     }
 
-	@Operation(summary = "Create a new product", description = "Adds a new product to inventory") //// describes the
+	@Operation(summary = "Deletes product information by product id") //// describes the
 																									//// endpoint
 	@DeleteMapping("/{id}") // Maps HTTP DELETE requests.
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable Long id) {
@@ -108,7 +108,7 @@ public class ProductController { // class named as Productcontroller
         }
     }
 
-	@Operation(summary = "Create a new product", description = "Adds a new product to inventory")
+	@Operation(summary = "Returns the lowStck products")
 
 	@GetMapping("/low-stock") // Handles requests like /api/products/low-stock.
     public ResponseEntity<List<Product>> getLowStockProducts() {
